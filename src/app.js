@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const RotarButton = document.querySelector("#rotate");
   const userSquares = [];
   const computerSquares = [];
+  const direction = [];
 
   const width = 10;
 
@@ -116,4 +117,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   rotateButton.addEventListener("click", rotate);
+
+  //move around user ship
+  ships.forEach(ship => ship.addEventListener("dragstart", dragStart));
+  userSquares.forEach(square =>
+    square.addEventListener("dragstart", dragStart)
+  );
+  userSquares.forEach(square => square.addEventListener("dragover", dragOver));
+  userSquares.forEach(square =>
+    square.addEventListener("dragenter", dragEnter)
+  );
+  userSquares.forEach(square =>
+    square.addEventListener("dragleave", dragLeave)
+  );
+  userSquares.forEach(square => square.addEventListener("dragdrop", dragDrop));
+  userSquares.forEach(square => square.addEventListener("dragend", dragEnd));
+
+  let selectedShipNameWithIndex;
+
+  ships.forEach(ship =>
+    ship.addEventListener("mousedown", e => {
+      selectedShipNameWithIndex = e.target.id;
+    })
+  );
+
+  function dragStart(e) {}
+
+  function dragOver() {}
+
+  function dragEnter() {}
+
+  function dragLeave() {}
+
+  function dragDrop() {}
+
+  function dragEnd() {}
 });
